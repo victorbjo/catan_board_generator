@@ -1,0 +1,117 @@
+:root{
+    --multiplier : 1.8;
+    --width : calc(10% * var(--multiplier));
+    --height : calc(11.547vw * var(--multiplier));
+    --left : 5vw;
+}
+img{
+    padding: 0px;
+    margin: 0px;
+    display: block;
+    position: absolute;
+    float: left;
+    width: var(--width);
+    height: var(--height);
+    clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
+  }
+
+img:nth-child(1){
+    left: calc(var(--width) + var(--left));
+    top: var(--left);
+}
+img:nth-child(2){
+    left: calc(calc(var(--width) * 2) + var(--left));
+    top: var(--left);
+}
+img:nth-child(3){
+    left: calc(calc(var(--width) * 3) + var(--left));
+    top: var(--left);
+}
+img:nth-child(4){
+    left: calc(calc(var(--width) * 0.5) + var(--left));
+    top: calc(calc(var(--height) * 0.75) + var(--left));
+}
+img:nth-child(5){
+    left: calc(calc(var(--width) * 1.5) + var(--left));
+    top: calc(calc(var(--height) * 0.75) + var(--left));
+}
+img:nth-child(6){
+    left: calc(calc(var(--width) * 2.5) + var(--left));
+    top: calc(calc(var(--height) * 0.75) + var(--left));
+}
+img:nth-child(7){
+    left: calc(calc(var(--width) * 3.5) + var(--left));
+    top: calc(calc(var(--height) * 0.75) + var(--left));
+}
+img:nth-child(8){
+    left: calc(calc(var(--width) * 0) + var(--left));
+    top: calc(calc(var(--height) * 1.49) + var(--left));
+}
+img:nth-child(9){
+    left: calc(calc(var(--width) * 1) + var(--left));
+    top: calc(calc(var(--height) * 1.49) + var(--left));
+}
+img:nth-child(10){
+    left: calc(calc(var(--width) * 2) + var(--left));
+    top: calc(calc(var(--height) * 1.49) + var(--left));
+}
+img:nth-child(11){
+    left: calc(calc(var(--width) * 3) + var(--left));
+    top: calc(calc(var(--height) * 1.49) + var(--left));
+}
+img:nth-child(12){
+    left: calc(calc(var(--width) * 4) + var(--left));
+    top: calc(calc(var(--height) * 1.49) + var(--left));
+}
+img:nth-child(13){
+    left: calc(calc(var(--width) * 0.5) + var(--left));
+    top: calc(calc(var(--height) * 2.24) + var(--left));
+}
+img:nth-child(14){
+    left: calc(calc(var(--width) * 1.5) + var(--left));
+    top: calc(calc(var(--height) * 2.24) + var(--left));
+}
+img:nth-child(15){
+    left: calc(calc(var(--width) * 2.5) + var(--left));
+    top: calc(calc(var(--height) * 2.24) + var(--left));
+}
+img:nth-child(16){
+    left: calc(calc(var(--width) * 3.5) + var(--left));
+    top: calc(calc(var(--height) * 2.24) + var(--left));
+}
+img:nth-child(17){
+    left: calc(calc(var(--width) * 1) + var(--left));
+    top: calc(calc(var(--height) * 2.99) + var(--left));
+}
+img:nth-child(18){
+    left: calc(calc(var(--width) * 2) + var(--left));
+    top: calc(calc(var(--height) * 2.99) + var(--left));
+}
+img:nth-child(19){
+    left: calc(calc(var(--width) * 3) + var(--left));
+    top: calc(calc(var(--height) * 2.99) + var(--left));
+}
+.board{
+    overflow: hidden;
+    left: 0px;
+    margin: 0%;
+    padding: 0%;
+    height: 92vw;
+    float: left;
+    width: 100%;
+    clear: left;
+}
+.water{
+    overflow: hidden;
+    left: 0px;
+    margin: 0%;
+    padding: 0%;
+    display: block;
+    position: absolute;
+    height: 92vw;
+    float: left;
+    width: 100%;
+    clear: left;
+    
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
