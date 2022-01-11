@@ -2,30 +2,42 @@
     <script src="script/moveImages.js"></script>
     <link rel="stylesheet" href="css/board.css">
     <body onload="moveImage()">
-    <div class="board" >
+        <h1>Settlers of Catan</h1>
+        <h2>Board Randomizer</h2>
+        
+    <div class="board" id="board" >
         <div class="water">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
-        <img src="images/hay.png.jpg">
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
+        <img class="area" src="images/hay.png.jpg"/>
     </div>
 </div>
-    <button onclick="moveImage()">New board!</button>
-    <button onclick="moveImage()">New board!</button>
+
+<p>&nbsp; </p>
+    
+    <div class="controls">
+        <button onclick="moveImage()">New board!</button>
+        <button onclick="addNumbers()">Toogle numbers</button>
+    </div>
+    <div class="setting">
+        <p>Randomize numbers?:</p><input onclick="clicked()" type="checkbox" class="checkbox" id="randomize"/>
+    </div>
+
 </body>
 </html>
