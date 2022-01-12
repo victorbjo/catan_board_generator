@@ -3,16 +3,27 @@ function moveImage() {
   let img_srcs = ["images/brick.png","images/lumber.jpg","images/ore.jpg","images/wool.jpg","images/hay.png.jpg","images/sand.jpg"]
   let order = [0,0,0,1,1,1,1,2,2,2,3,3,3,3,4,4,4,4];
   numImages = document.getElementsByClassName("number");
-  for (let i = 0; i < 100; i++){
-    order = (shuffle(order));
-  }
+  order = (shuffle(order));
+  
   for (let i = 0; i < images.length; i++){
     images[i].src = img_srcs[order[i]];
     }
   images[18].src = images[9].src;
   images[9].src = img_srcs[5];
-  addNumbers();
-  addNumbers();
+  numImages = document.getElementsByClassName("number");
+  numImgLength = numImages.length;
+  let maxNeighbours = document.getElementById("neighbours");
+  if (checkForNeighbours() > maxNeighbours.value){
+        moveImage();  
+    }
+  else{
+  if (numImages[0] != null){
+      for (let i = 0; i < numImgLength; i++){
+          numImages[0].remove();
+      }
+      addNumbers();
+  }}
+  
 }
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -24,6 +35,7 @@ function shuffle(array) {
       return array;
   }
 function addNumbers(){
+    window.scrollTo(0, 0);
     let images = document.getElementsByTagName("img");
     let imgLength = images.length;
     let numbers = [2,3,3,4,4,5,5,6,6,7,8,8,9,9,10,10,11,11,12];
@@ -74,6 +86,78 @@ function addNumbers(){
     }
 }
 function clicked(){
-    addNumbers();
-    addNumbers();
+    numImages = document.getElementsByClassName("number");
+    numImgLength = numImages.length;
+    if (numImages[0] != null){
+        for (let i = 0; i < numImgLength; i++){
+            numImages[0].remove();
+        }
+        addNumbers();
+    }
+    
+}
+function checkForNeighbours(){
+    let rows = [[0,1,2],[3,4,5,6],[7,8,9,10,11],[12,13,14,15],[16,17,18]];
+    let numImages = document.getElementsByClassName("area");
+    let neighbours = 0; 
+    for (let i = 0; i < 5; i++){
+        for (let j = 0; j < rows[i].length; j++){
+            let localNeighbour = 0;
+            try {
+                if (numImages[rows[i][j]].src == numImages[rows[i][j-1]].src){ //Checks left neighbour
+                    localNeighbour++;
+                }
+            }
+            catch(err) {
+                let a = 2;
+            }
+            try {
+                if (numImages[rows[i][j]].src == numImages[rows[i][j+1]].src){ //Checks right neighbour
+                    localNeighbour++;
+                }
+            }
+            catch(err) {
+                let a = 2;
+            }
+            try {
+                if (numImages[rows[i][j]].src == numImages[rows[i-1][j]].src){//Checks the right neighbour on the row above
+                    localNeighbour++;
+                }
+            }
+            catch(err) {
+                let a = 2;
+            }
+            try {
+                if (numImages[rows[i][j]].src == numImages[rows[i-1][j-1]].src){//Checks the left neighbour on the row above
+                    localNeighbour++;
+                }
+            }
+            catch(err) {
+                let a = 2;
+            }
+            try {
+                if (numImages[rows[i][j]].src == numImages[rows[i+1][j]].src){//Checks the right neighbour on the row below
+                    localNeighbour++;
+                }
+            }
+            catch(err) {
+                let a = 2;
+            }
+            try {
+                if (numImages[rows[i][j]].src == numImages[rows[i+1][j-1]].src){//Checks the left neighbour on the row below
+                    localNeighbour++;
+                }
+            }
+            catch(err) {
+                let a = 2;
+            }
+              if (localNeighbour > neighbours){
+                  neighbours = localNeighbour;
+              }
+              localNeighbour = 0;
+        }
+
+
+    }
+    return(neighbours);
 }

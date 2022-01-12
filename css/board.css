@@ -63,8 +63,15 @@ h2{
 }
 .controls{
     display:flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-evenly;
+}
+.neighbours{
+    height: 5rem;
+    font-size: 4rem;
+}
+option{
+    font-size: 1rem;
 }
 .area:nth-child(1){
     left: calc(var(--width) + var(--left));
