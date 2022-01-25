@@ -34,6 +34,7 @@
     <div class="controls">
         <button onclick="moveImage()">New board!</button>
         <button onclick="addNumbers()">Toogle numbers</button>
+        <button onclick="RemoveNeighbor()">Remove neighbours</button>
     </div>
     <div class="setting">
         <p>Randomize numbers?:</p><input onclick="clicked()" type="checkbox" class="checkbox" id="randomize"/>
@@ -41,18 +42,18 @@
     <div class="setting">
         <p>Max numbers of neighbours?:</p>
     </div>
-    <div class="controls">
     <div class="setting">
         <select class="neighbours" id="neighbours">
-            <option value="0">0 neighbour</option>
-            <option value="1" selected="selected" >1 neighbour</option>
-            <option value="2">2 neighbours</option>
+            <option value="1">1 neighbour</option>
+            <option value="2" selected="selected">2 neighbours</option>
             <option value="3">3 neighbours</option>
           </select>
     </div>
-    
-        <button class="neighbours" onclick="exportBoard()">Export</button>
+    <div class="controls">
+        <button onclick="exportBoard()">Export board</button>
         
     </div>
+    <input type=text id ="save"/>
+    <button onclick="importBoard()">Import</button>
 </body>
 </html>

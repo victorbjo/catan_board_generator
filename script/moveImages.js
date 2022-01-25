@@ -13,6 +13,13 @@
   numImages = document.getElementsByClassName("number");
   numImgLength = numImages.length;
   let maxNeighbours = document.getElementById("neighbours");
+  if (maxNeighbours.value == 0){
+    if (checkForNeighbours() > 1){
+        moveImage();  
+    }
+    RemoveNeighbor();
+    return;
+  }
   if (checkForNeighbours() > maxNeighbours.value){
         moveImage();  
     }
@@ -123,6 +130,7 @@ function countNeighbours(getPos = false){
     }
     return(neighbourCount);
 }
+
 function getNeighbour(y,x){
     let nList =[];
     let rows = [[0,1,2],[3,4,5,6],[7,8,9,10,11],[12,13,14,15],[16,17,18]];
@@ -172,27 +180,32 @@ function RemoveNeighbor(){
     countNeighbours();
     let rows = [[0,1,2],[3,4,5,6],[7,8,9,10,11],[12,13,14,15],[16,17,18]];
     let n0 = countNeighbours(true);
-    alert(n0);
     let numImages = document.getElementsByClassName("area");
     let src = numImages[rows[n0[0]][n0[1]]].src;
     let changed = false;
-    for (let i = 0; i < 5; i++){
-        for (let j = 0; j < rows[i].length; j++){
-            let neighbours = getNeighbour(i,j);
-            let neighbours0 = getNeighbour(n0[0],n0[1]);
-            //alert(" " + i +j);
-            if (!neighbours.includes(numImages[rows[n0[0]][n0[1]]].src) && !changed && rows[i][j] != 9 && !neighbours0.includes(numImages[rows[i][j]].src)){
-                numImages[rows[n0[0]][n0[1]]].src = numImages[rows[i][j]].src;
-                numImages[rows[i][j]].src = src;
-                changed = true;
-                
-                alert("Picture "+n0 +" has been switched with "+i + j);
+    let count = 0;
+    while (n0 != 0 && count < 15){
+        count += 1;
+        changed = false;
+        n0 = countNeighbours(true);
+        src = numImages[rows[n0[0]][n0[1]]].src;
+        for (let i = 0; i < 5; i++){
+            for (let j = 0; j < rows[i].length; j++){
+                let neighbours = getNeighbour(i,j);
+                let neighbours0 = getNeighbour(n0[0],n0[1]);
+                //alert(" " + i +j);
+                if (!neighbours.includes(numImages[rows[n0[0]][n0[1]]].src) && !changed && rows[i][j] != 9 && !neighbours0.includes(numImages[rows[i][j]].src)){
+                    numImages[rows[n0[0]][n0[1]]].src = numImages[rows[i][j]].src;
+                    numImages[rows[i][j]].src = src;
+                    changed = true;
+                    
 
+                }
             }
         }
-    }
-    if (changed == false){
-        swithcPictures(n0[0],n0[1]);
+        if (changed == false){
+            swithcPictures(n0[0],n0[1]);
+        }
     }
 
 
