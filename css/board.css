@@ -1,8 +1,8 @@
 :root{
-    --multiplier : 1.8;
+    --multiplier : 1.95;
     --width : calc(10% * var(--multiplier));
     --height : calc(11.547vw * var(--multiplier));
-    --left : 5vw;
+    --left : 1.25vw;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .area{
@@ -158,6 +158,7 @@ option{
     float: left;
     width: 100%;
     clear: left;
+    background-color: white;
 }
 .water{
     overflow: hidden;
@@ -170,6 +171,4 @@ option{
     float: left;
     width: 100%;
     clear: left;
-    
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
