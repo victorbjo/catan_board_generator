@@ -1,6 +1,6 @@
 :root{
     --multiplier : 1.95;
-    --width : calc(10% * var(--multiplier));
+    --width : calc(10vw * var(--multiplier));
     --height : calc(11.547vw * var(--multiplier));
     --left : 1.25vw;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

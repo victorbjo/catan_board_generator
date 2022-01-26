@@ -1,0 +1,41 @@
+<html>
+    <script src="script/moveImages.js"></script>
+    <script src="script/board.js"></script>
+    <link rel="stylesheet" href="css/areas.css">
+    <body onload="moveImage()">
+        <h1>Settlers of Catan</h1>
+        <h2>Board Randomizer</h2>
+        
+    <div class="board" id="board" >
+        <div id="water" class="water">
+    </div>
+</div>
+
+<p>&nbsp; </p>
+    
+    <div class="controls">
+        <button onclick="moveImage()">New board!</button>
+        <button onclick="addNumbers()">Toogle numbers</button>
+        <button onclick="createBoard()">Create board</button>
+    </div>
+    <div class="setting">
+        <p>Randomize numbers?:</p><input onclick="clicked()" type="checkbox" class="checkbox" id="randomize"/>
+    </div>
+    <div class="setting">
+        <p>Max numbers of neighbours?:</p>
+    </div>
+    <div class="controls">
+    <div class="setting">
+        <select class="neighbours" id="neighbours">
+            <option value="0">0 neighbour</option>
+            <option value="1" selected="selected" >1 neighbour</option>
+            <option value="2">2 neighbours</option>
+            <option value="3">3 neighbours</option>
+          </select>
+    </div>
+    
+        <button class="neighbours" onclick="exportBoard()">Export</button>
+        
+    </div>
+</body>
+</html>
