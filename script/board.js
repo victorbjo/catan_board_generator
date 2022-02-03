@@ -24,9 +24,22 @@ function calculateY(y){
 
 }
 function createBoard(){
-    createRow(5,0, 1);
-    createRow(6,1, 1);
-    createRow(7,2, 1);
+    let mode = 1;
+    if (mode == 0){
+        createRow(3,0, 0);
+        createRow(4,1, 0);
+        createRow(5,2, 0);
+        createRow(4,3, 0);
+        createRow(3,4, 0);
+    }
+    if (mode == 1){
+    createRow(3,0, 1);
+    createRow(4,1, 1);
+    createRow(5,2, 1);
     createRow(6,3, 1);
     createRow(5,4, 1);
+    createRow(4,5, 1);
+    createRow(3,6, 1);
+    }
+    populate(mode);
 }

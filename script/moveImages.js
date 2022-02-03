@@ -1,7 +1,8 @@
- function moveImage() {
+function moveImage() {
   let images = document.getElementsByTagName("img");
   let img_srcs = ["images/brick.png","images/lumber.jpg","images/ore.jpg","images/wool.jpg","images/hay.png.jpg","images/sand.jpg"]
   let order = [0,0,0,1,1,1,1,2,2,2,3,3,3,3,4,4,4,4];
+    order = [0,0,0,1,1,1,1,2,2,2,3,3,3,3,4,4,4,4];
   numImages = document.getElementsByClassName("number");
   order = (shuffle(order));
   
@@ -32,6 +33,70 @@
   }}
   
 }
+
+function populate(mode) {
+    let images = document.getElementsByTagName("img");
+    let img_srcs = ["images/brick.png","images/lumber.jpg","images/ore.jpg","images/wool.jpg","images/hay.png.jpg","images/sand.jpg"]
+    let order = [0,0,0,1,1,1,1,2,2,2,3,3,3,3,4,4,4,4];
+    let neighbourCount = 0;
+    if (mode == 1){
+        order = [0,0,0,1,1,1,1,2,2,2,3,3,3,3,4,4,4,4,0,0,1,1,2,2,3,3,4,4];
+    }
+    numImages = document.getElementsByClassName("number");
+    order = (shuffle(order));
+    
+    for (let i = 0; i < images.length; i++){
+      images[i].src = img_srcs[order[i]];
+      }
+    let middle = parseFloat(images.length)/2;
+    if (middle - parseInt(middle)>0){
+        images[images.length-1].src = images[parseInt(middle)].src;
+        images[parseInt(middle)].src = img_srcs[5];
+    }else{
+        images[images.length-1].src = images[middle].src;
+        images[parseInt(middle)].src = img_srcs[5];
+        images[images.length-2].src = images[middle-1].src;
+        images[middle-1].src = img_srcs[5];
+    }
+    for (let i = 0; i < images.length; i++){
+      let tempNeighbour = tests(i);
+      if (tempNeighbour > neighbourCount){
+          neighbourCount = tempNeighbour;
+          if (tempNeighbour > 5){
+              return;
+          }
+      }
+    }
+      let maxNeighbours = document.getElementById("neighbours");
+      if (neighbourCount > maxNeighbours.value){
+        populate(mode);  
+    }
+    
+      /*
+    images[18].src = images[9].src;
+    images[9].src = img_srcs[5];
+    numImages = document.getElementsByClassName("number");
+    numImgLength = numImages.length;
+    let maxNeighbours = document.getElementById("neighbours");
+    if (maxNeighbours.value == 0){
+      if (checkForNeighbours() > 1){
+          moveImage();  
+      }
+      RemoveNeighbor();
+      return;
+    }
+    if (checkForNeighbours() > maxNeighbours.value){
+          moveImage();  
+      }
+    else{
+    if (numImages[0] != null){
+        for (let i = 0; i < numImgLength; i++){
+            numImages[0].remove();
+        }
+        addNumbers();
+    }}*/
+    
+  }
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));

@@ -1,20 +1,22 @@
 <html>
+    <meta name="viewport" >
     <script src="script/moveImages.js"></script>
     <script src="script/board.js"></script>
+    <script src="script/neighbour.js"></script>
     <link rel="stylesheet" href="css/areas.css">
     <body onload="moveImage()">
         <h1>Settlers of Catan</h1>
         <h2>Board Randomizer</h2>
-        
     <div class="board" id="board" >
         <div id="water" class="water">
     </div>
+    
 </div>
 
 <p>&nbsp; </p>
     
     <div class="controls">
-        <button onclick="moveImage()">New board!</button>
+        <button onclick="populate(1)">New board!</button>
         <button onclick="addNumbers()">Toogle numbers</button>
         <button onclick="createBoard()">Create board</button>
     </div>
@@ -37,5 +39,8 @@
         <button class="neighbours" onclick="exportBoard()">Export</button>
         
     </div>
+    <input type=text id ="save"/>
+    <button onclick="importBoard()">Import</button>
 </body>
+</meta>
 </html>

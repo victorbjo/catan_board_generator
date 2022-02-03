@@ -152,7 +152,6 @@ option{
     top: calc(calc(var(--height) * 2.99) + var(--left));
 }
 .board{
-    overflow: hidden;
     left: 0px;
     margin: 0%;
     padding: 0%;
@@ -161,9 +160,9 @@ option{
     width: 100%;
     clear: left;
     background-color: white;
+    overflow-x: scroll;
 }
 .water{
-    overflow: hidden;
     left: 0px;
     margin: 0%;
     padding: 0%;
@@ -171,6 +170,7 @@ option{
     position: absolute;
     height: 92vw;
     float: left;
-    width: 100%;
+    width: 150%;
     clear: left;
+    overflow-x: scroll;
 }
