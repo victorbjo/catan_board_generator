@@ -1,8 +1,8 @@
-function createRow(numOfElements, rowId) 
+function createRow(numOfElements, rowId, xOffset) 
 {
     let water = document.getElementById("water");
     let widthOffset = 50-(numOfElements * 19.5/2);
-
+    widthOffset = widthOffset + xOffset * 19.5;
     for (let i = 0; i < numOfElements; i++){
         let area = document.createElement("img");
         area.src = "images/hay.png.jpg";
@@ -24,9 +24,9 @@ function calculateY(y){
 
 }
 function createBoard(){
-    createRow(5,0);
-    createRow(6,1);
-    createRow(7,2);
-    createRow(4,3);
-    createRow(3,4);
+    createRow(5,0, 1);
+    createRow(6,1, 1);
+    createRow(7,2, 1);
+    createRow(6,3, 1);
+    createRow(5,4, 1);
 }
