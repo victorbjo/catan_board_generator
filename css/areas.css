@@ -45,7 +45,7 @@ button
       
 }
 p{
-    font-size: 4rem;
+    font-size: 3rem;
 }
 h1{
     font-size: 5rem;
@@ -60,6 +60,7 @@ h2{
     margin-left:4rem;
     display:flex;
     flex-wrap: nowrap;  
+    justify-content: space-between;
 }
 .controls{
     display:flex;
@@ -68,7 +69,8 @@ h2{
 }
 .neighbours{
     height: 5rem;
-    font-size: 4rem;
+    font-size: 3rem;
+    font-weight: 500;
     margin-top: auto;
     margin-bottom: auto;
 }

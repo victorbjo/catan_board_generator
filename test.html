@@ -22,22 +22,24 @@
         <p>Toggle numbers?:</p><input onclick="addNumbers()" type="checkbox" class="checkbox" id="randomize"/>
 </div>
 <div class="setting">
-        <p>Randomize numbers?:</p><input onclick="clicked()" type="checkbox" checked="true" class="checkbox" id="randomize"/>
+        <p>Randomize numbers?:</p>
+        <input onclick="clicked()" type="checkbox" checked="true" class="checkbox" id="randomize"/>
     </div>
     
+   
+        
+    
     <div class="setting">
-        <p>Max numbers of neighbours?:</p>
-    </div>
-    <div class="controls">
-    <div class="setting">
+        <p>Neighbours?:</p>
         <select class="neighbours" id="neighbours">
-            <option value="0">0 neighbour</option>
-            <option value="1" selected="selected" >1 neighbour</option>
-            <option value="2">2 neighbours</option>
-            <option value="3">3 neighbours</option>
+            <option value="0">No neighbour</option>
+            <option value="1" selected="selected" >Max 1 neighbour</option>
+            <option value="2">Max 2 neighbours</option>
+            <option value="3">Max 3 neighbours</option>
           </select>
     </div>
     <div class="setting">
+        <p>Gamemode:</p>
         <select class="neighbours" id="mode" onchange="createBoard()">
             <option value="0" selected="selected" >2-4 players</option>
             <option value="1">5-6 players </option>
@@ -45,7 +47,7 @@
     </div>
         <button class="neighbours" onclick="exportBoard()">Export</button>
         
-    </div>
+  
     <input type=text id ="save"/>
     <button onclick="importBoard()">Import</button>
 </body>
