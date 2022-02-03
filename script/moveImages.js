@@ -59,7 +59,7 @@ function populate(mode) {
         images[middle-1].src = img_srcs[5];
     }
     for (let i = 0; i < images.length; i++){
-      let tempNeighbour = tests(i);
+      let tempNeighbour = checkLocalNeighbour(i);
       if (tempNeighbour > neighbourCount){
           neighbourCount = tempNeighbour;
           if (tempNeighbour > 5){
@@ -68,7 +68,10 @@ function populate(mode) {
       }
     }
       let maxNeighbours = document.getElementById("neighbours");
-      if (neighbourCount > maxNeighbours.value){
+      if (maxNeighbours.value < 1 && neighbourCount < 2){
+        RemoveNeighbors();
+      }
+      else if (neighbourCount > maxNeighbours.value){
         populate(mode);  
     }
     
@@ -97,6 +100,32 @@ function populate(mode) {
     }}*/
     
   }
+
+function RemoveNeighbors(){
+    let images = document.getElementsByTagName("img");
+    let check = false;
+    
+    for (img in images){
+        if (checkLocalNeighbour(img) > 0 && !images[img].src.includes("sand")){
+            for (let img2 = 0; img2 < images.length; img2++){
+                if (img != img2 && !images[img2].src.includes("sand") && check == false){
+                    switchAreas(img, img2);
+                    if (checkLocalNeighbour(img) > 0 || checkLocalNeighbour(img2) > 0 ){
+                        switchAreas(img, img2);
+                    }
+                    else{
+                        check = true;
+                    }
+                }
+                
+            }
+            if (check != true){
+                randomSwitch(img);
+            }
+            check = false;
+        }
+    }
+}
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));

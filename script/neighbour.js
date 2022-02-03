@@ -1,4 +1,4 @@
-function tests(imageToCheck) {
+function checkLocalNeighbour(imageToCheck) {
     let numImages = document.getElementsByClassName("area");
     let neighbours = 0;
     for (image in numImages){
@@ -14,5 +14,24 @@ function tests(imageToCheck) {
     return (neighbours);
   }
 function switchAreas(image0, image1){
-    
+    let images = document.getElementsByTagName("img");
+    let tempImageSrc = images[image0].src;
+    if (tempImageSrc.includes("sand") || images[image1].src.includes("sand")){
+        alert("SAND");
+    }
+    images[image0].src = images[image1].src;
+    images[image1].src = tempImageSrc;  
+}
+function randomSwitch(image){
+    alert(1);
+        let images = document.getElementsByTagName("img");
+        let randomImage = Math.floor(Math.random()*images.length);
+        alert("Random");
+        alert(images[randomImage].src.includes("sand"));
+        if (!images[randomImage].src.includes("sand") && randomImage != image){
+            switchAreas(image, randomImage);
+        }
+        else{
+            randomSwitch(image);
+        }
 }
