@@ -79,7 +79,7 @@ option{
     left: 0px;
     margin: 0%;
     padding: 0%;
-    height: 92vw;
+    height: 0vw;
     float: left;
     width: 100%;
     clear: left;
@@ -91,9 +91,10 @@ option{
     padding: 0%;
     display: block;
     position: absolute;
-    height: 92vw;
+    height: 0vw;
     float: left;
     width: 100%;
     clear: left;
     overflow-x: scroll;
+    
 }

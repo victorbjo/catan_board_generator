@@ -23,11 +23,9 @@ function switchAreas(image0, image1){
     images[image1].src = tempImageSrc;  
 }
 function randomSwitch(image){
-    alert(1);
         let images = document.getElementsByTagName("img");
         let randomImage = Math.floor(Math.random()*images.length);
-        alert("Random");
-        alert(images[randomImage].src.includes("sand"));
+        alert("RNG ENGINE ACTIVATED😎");
         if (!images[randomImage].src.includes("sand") && randomImage != image){
             switchAreas(image, randomImage);
         }

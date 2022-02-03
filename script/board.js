@@ -2,7 +2,7 @@ function createRow(numOfElements, rowId, xOffset)
 {
     let water = document.getElementById("water");
     let widthOffset = 50-(numOfElements * 19.5/2);
-    widthOffset = widthOffset + xOffset * 19.5;
+    widthOffset = widthOffset + xOffset * 10;
     for (let i = 0; i < numOfElements; i++){
         let area = document.createElement("img");
         area.src = "images/hay.png.jpg";
@@ -24,8 +24,18 @@ function calculateY(y){
 
 }
 function createBoard(){
-    let mode = 1;
+    let mode = document.getElementById("mode").value;
+    if (document.getElementsByTagName("img").length > 5){
+        let images = document.getElementsByTagName("img");
+        let length = images.length;
+        for (let i = 0; i < length; i++){
+            images[0].parentNode.removeChild(images[0]);
+        }
+    }
     if (mode == 0){
+        let boardsss = document.getElementById("board");
+        let water = document.getElementById("water");
+        water.style.height = board.style.height = "92vw";
         createRow(3,0, 0);
         createRow(4,1, 0);
         createRow(5,2, 0);
@@ -33,6 +43,9 @@ function createBoard(){
         createRow(3,4, 0);
     }
     if (mode == 1){
+        let boardsss = document.getElementById("board");
+        let water = document.getElementById("water");
+        water.style.height = board.style.height = "125vw";
     createRow(3,0, 1);
     createRow(4,1, 1);
     createRow(5,2, 1);

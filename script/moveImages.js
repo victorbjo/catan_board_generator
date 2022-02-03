@@ -98,7 +98,7 @@ function populate(mode) {
         }
         addNumbers();
     }}*/
-    
+    addNumbers()
   }
 
 function RemoveNeighbors(){
@@ -121,6 +121,7 @@ function RemoveNeighbors(){
             }
             if (check != true){
                 randomSwitch(img);
+                RemoveNeighbors();
             }
             check = false;
         }
@@ -158,21 +159,21 @@ function addNumbers(){
         newImage.src = "images/"+numbers[i]+".png";
         newImage.classList.add("number");
         newImage.style.left = "calc(" + images[i].getBoundingClientRect().left + "px + 4.7vw)";
-        newImage.style.top = "calc(" + images[i].getBoundingClientRect().top + "px + 6vw)";
-        document.getElementById("board").appendChild(newImage);
+        newImage.style.top = "calc(" + images[i].getBoundingClientRect().top + "px - 13.5vw)";
+        document.getElementById("water").appendChild(newImage);
         }
     }
     let randomize = document.getElementById("randomize");
     if (!randomize.checked){
-    for (let i = 0; i < areaNumbers.length; i++){
-        let images = document.getElementsByClassName("number");
-        images[areaNumbers[i]].src = "images/"+outerRing[i]+".png";  
+        for (let i = 0; i < areaNumbers.length; i++){
+            let images = document.getElementsByClassName("number");
+            images[areaNumbers[i]].src = "images/"+outerRing[i]+".png";  
+        }
+        for (let i = 0; i < areaNumbersInner.length; i++){
+            let images = document.getElementsByClassName("number");
+            images[areaNumbersInner[i]].src = "images/"+innerRing[i]+".png";  
+        }
     }
-    for (let i = 0; i < areaNumbersInner.length; i++){
-        let images = document.getElementsByClassName("number");
-        images[areaNumbersInner[i]].src = "images/"+innerRing[i]+".png";  
-    }
-}
     else{
         areaNumbers0 = areaNumbers.concat(areaNumbersInner);
         outerRing0 = outerRing.concat(innerRing);

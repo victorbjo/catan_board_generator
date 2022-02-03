@@ -4,7 +4,7 @@
     <script src="script/board.js"></script>
     <script src="script/neighbour.js"></script>
     <link rel="stylesheet" href="css/areas.css">
-    <body onload="moveImage()">
+    <body onload="createBoard()">
         <h1>Settlers of Catan</h1>
         <h2>Board Randomizer</h2>
     <div class="board" id="board" >
@@ -16,13 +16,15 @@
 <p>&nbsp; </p>
     
     <div class="controls">
-        <button onclick="populate(1)">New board!</button>
-        <button onclick="addNumbers()">Toogle numbers</button>
-        <button onclick="createBoard()">Create board</button>
+        <button onclick="createBoard()">New board</button>
     </div>
     <div class="setting">
-        <p>Randomize numbers?:</p><input onclick="clicked()" type="checkbox" class="checkbox" id="randomize"/>
+        <p>Toggle numbers?:</p><input onclick="addNumbers()" type="checkbox" class="checkbox" id="randomize"/>
+</div>
+<div class="setting">
+        <p>Randomize numbers?:</p><input onclick="clicked()" type="checkbox" checked="true" class="checkbox" id="randomize"/>
     </div>
+    
     <div class="setting">
         <p>Max numbers of neighbours?:</p>
     </div>
@@ -35,7 +37,12 @@
             <option value="3">3 neighbours</option>
           </select>
     </div>
-    
+    <div class="setting">
+        <select class="neighbours" id="mode" onchange="createBoard()">
+            <option value="0" selected="selected" >2-4 players</option>
+            <option value="1">5-6 players </option>
+          </select>
+    </div>
         <button class="neighbours" onclick="exportBoard()">Export</button>
         
     </div>
