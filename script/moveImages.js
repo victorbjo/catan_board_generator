@@ -29,7 +29,7 @@ function moveImage() {
       for (let i = 0; i < numImgLength; i++){
           numImages[0].remove();
       }
-      addNumbers();
+      //addNumbers();
   }}
   
 }
@@ -98,7 +98,7 @@ function populate(mode) {
         }
         addNumbers();
     }}*/
-    addNumbers()
+    //addNumbers()
   }
 
 function RemoveNeighbors(){
@@ -136,8 +136,60 @@ function shuffle(array) {
       }
       return array;
   }
-function addNumbers(){
+
+function addNumbers2(){
+    let images = document.getElementsByTagName("img");
+    let mode = document.getElementById("mode").value;
+    let numbers = [2,3,3,4,4,5,5,6,6,8,8,9,9,10,10,11,11,12];
+    let numbers5_6 = [4,6,9,11,10,12,5,3,8,2];
+    if (mode == 1){
+        numbers = numbers.concat(numbers, numbers5_6);
+    }
+    numbers = shuffle(numbers);
+    numImages = document.getElementsByClassName("number");
+    let numImgLength = numImages.length;
+    let proceed = document.getElementById("add").checked;
+    if (!proceed){
+        for (let i = 0; i < numImgLength; i++){
+            numImages[0].remove();
+        }
+        return;
+    }
+    if (numImages[0] != null){
+        for (let i = 0; i < numImgLength; i++){
+            numImages[0].remove();
+        }
+        return;
+    }
+    let middle = parseFloat(images.length)/2;
+    let middle2 = 0;
+    if (middle - parseInt(middle)>0){
+        middle = parseInt(middle);
+        numbers.splice(middle, 0, 7);
+    }else{
+        
+        middle = parseInt(middle);
+        middle2 = middle-1;
+        numbers.splice(middle2, 0, 7);
+        numbers.splice(middle2, 0, 7);
+    }
+    let imgLen = images.length;
+    for (let i = 0; i < imgLen; i++){
+            let newImage = document.createElement("img");
+            newImage.src = "images/"+numbers[i]+".png";
+            newImage.classList.add("number");
+            newImage.style.left = "calc(" + images[i].offsetLeft + "px + 4.7vw)";
+            newImage.style.top = "calc(" + images[i].offsetTop + "px + 6.5vw)";
+            document.getElementById("water").appendChild(newImage);
+
+    } 
+    
+}
+
+
+/*function addNumbers(){
     window.scrollTo(0, 0);
+    let mode = document.getElementById("mode").value;
     let images = document.getElementsByTagName("img");
     let imgLength = images.length;
     let numbers = [2,3,3,4,4,5,5,6,6,7,8,8,9,9,10,10,11,11,12];
@@ -187,6 +239,7 @@ function addNumbers(){
         }
     }
 }
+*/
 function clicked(){
     numImages = document.getElementsByClassName("number");
     numImgLength = numImages.length;
@@ -194,7 +247,7 @@ function clicked(){
         for (let i = 0; i < numImgLength; i++){
             numImages[0].remove();
         }
-        addNumbers();
+        //addNumbers();
     }
     
 }
